@@ -5,4 +5,4 @@ const sequelize = new Sequelize("task_db", "user2", "hRMyzHVgtWgDJAwe", {
   dialect: "mysql",
 });
 
-module.exports = sequelize;
+export default sequelize;

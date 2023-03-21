@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import db from "utils/database.js";
+import sequelize from "./utils/database.js";
 
 const port = process.env.PORT || 3000;
 
@@ -14,10 +14,12 @@ app.use((_req, res, next) => {
     "Access-Control-Allow-Methods",
     "GET,POST,PUT,DELETE,PATCH,OPTIONS"
   );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
 
 app.listen(port, () => {
   console.log(`Started on port ${port}`);
 });
+
+export default app;
