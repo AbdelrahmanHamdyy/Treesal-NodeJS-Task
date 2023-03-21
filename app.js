@@ -18,8 +18,14 @@ app.use((_req, res, next) => {
   next();
 });
 
-app.listen(port, () => {
-  console.log(`Started on port ${port}`);
-});
+try {
+  await sequelize.sync();
+  console.log("Connection has been established successfully.");
+  app.listen(port, () => {
+    console.log(`Started on port ${port}`);
+  });
+} catch (error) {
+  console.error("Unable to connect to the database:", error);
+}
 
 export default app;
