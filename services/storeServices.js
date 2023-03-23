@@ -1,6 +1,12 @@
 import Store from "../models/Store.js";
-import Category from "../models/Category.js";
 
+/**
+ * This service function takes a category ID and gets all stores of this
+ * particular category. Then, the result is returned but in a different format
+ * using the map function where we split the id and the store contents itself.
+ * @param {number} categoryId Category ID used in getting the stores query
+ * @returns {Array} Array of objects containing the contents of each store
+ */
 export async function getStoresByCategoryId(categoryId) {
   const stores = await Store.findAll({
     where: {
@@ -25,6 +31,13 @@ export async function getStoresByCategoryId(categoryId) {
   return result;
 }
 
+/**
+ * A service function used to create a new store. It receives the request body
+ * in the data object and extracts the relevant fields from it to be inserted
+ * as a new record in the Store table.
+ * @param {object} data Request body containing Store info
+ * @returns {void}
+ */
 export async function createNewStore(data) {
   await Store.create({
     arabic_name: data.arabic_name,
