@@ -36,11 +36,11 @@ const Store = sequelize.define(
     },
     contact_person_name: {
       type: Sequelize.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     contact_person_number: {
       type: Sequelize.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
   },
   {
