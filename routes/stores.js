@@ -1,7 +1,4 @@
 import express from "express";
-import storeController from "../controllers/storeController.js";
-import categoryController from "../controllers/categoryController.js";
-import { validateRequestSchema } from "../middlewares/validationResult.js";
 
 const storeRouter = express.Router();
 
@@ -88,12 +85,7 @@ const storeRouter = express.Router();
  *      security:
  *       - bearerAuth: []
  */
-storeRouter.post(
-  "/create-store",
-  storeController.createStoreValidator,
-  validateRequestSchema,
-  storeController.createStore
-);
+storeRouter.post("/create-store");
 
 /**
  * @swagger
@@ -139,11 +131,6 @@ storeRouter.post(
  *          500:
  *              description: Internal Server Error
  */
-storeRouter.get(
-  "/stores/:category_id",
-  categoryController.categoryIdValidator,
-  validateRequestSchema,
-  storeController.getStores
-);
+storeRouter.get("/stores/:category_id");
 
 export default storeRouter;
