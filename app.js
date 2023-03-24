@@ -4,8 +4,11 @@ import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
 import sequelize from "./utils/database.js";
 import mainRouter from "./routes/router.js";
+import dotenv from "dotenv";
 
 const port = process.env.PORT || 3000;
+
+dotenv.config();
 
 const app = express();
 
