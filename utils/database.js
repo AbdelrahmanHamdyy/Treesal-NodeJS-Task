@@ -1,7 +1,15 @@
 import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
 
-const sequelize = new Sequelize("task_db", "user2", "hRMyzHVgtWgDJAwe", {
-  host: "18.157.127.87",
+dotenv.config();
+
+const HOST = process.env.DB_HOST;
+const NAME = process.env.DB_NAME;
+const USERNAME = process.env.DB_USERNAME;
+const PASSWORD = process.env.DB_PASSWORD;
+
+const sequelize = new Sequelize(NAME, USERNAME, PASSWORD, {
+  host: HOST,
   dialect: "mysql",
 });
 
